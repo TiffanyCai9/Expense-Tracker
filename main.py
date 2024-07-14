@@ -7,6 +7,7 @@ def main():
     expense_file_name = "expenses.csv"
     budget = 200
 
+    # Display the main menu options
     while True:
         print("\n1. Add expense (+)")
         print("2. Delete expense (-)")
@@ -28,15 +29,9 @@ def main():
             break
         else:
             print("Invalid choice! Please enter a number between 1 and 4.")
-    
-    
-    #expense = get_user_expense()
-    #write user expense to a file
-    #save_expense_to_file(expense, expense_file_name)
-    #read file + summarize expenses
-    #summarize_expense(expense_file_name, budget)
 
 def get_user_expense():
+    # Get the details of a new expense from the user
     print("💵 Getting User Expense")
     expense_name = input("Enter expense name: ")
     while True:
@@ -75,11 +70,13 @@ def get_user_expense():
             print("Invalid category. Please try again!")
 
 def save_expense_to_file(expense, expense_file_name):
+    # Save the expense to the CSV file, expenses.csv
     print(f"💵 Saving User Expense: {expense} to {expense_file_name}")
     with open(expense_file_name, "a") as file:
         file.write(f"{expense.name}, {expense.amount}, {expense.category}\n")
 
 def summarize_expense(expense_file_name, budget):
+    # Read expenses from the file and generate a summary report
     print("💵 Summarizing User Expense") 
     expenses = []
     with open(expense_file_name, "r") as file:
@@ -117,6 +114,7 @@ def summarize_expense(expense_file_name, budget):
     print(f"💵 Budget Per Day: ${daily_budget:.2f}")
 
 def delete_expense(expense_file_name):
+    # Delete an expense from the CSV file
     print("💵 Deleting User Expense")
     print("Printing Expenses")
 
